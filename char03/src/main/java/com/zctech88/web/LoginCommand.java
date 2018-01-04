@@ -1,4 +1,4 @@
-package com.smart.web;
+package com.zctech88.web;
 
 public class LoginCommand {
 	private String userName;

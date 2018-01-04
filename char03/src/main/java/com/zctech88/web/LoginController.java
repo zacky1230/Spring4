@@ -1,7 +1,7 @@
-package com.smart.web;
+package com.zctech88.web;
 
-import com.smart.domain.User;
-import com.smart.service.UserService;
+import com.zctech88.domain.User;
+import com.zctech88.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

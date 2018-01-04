@@ -18,6 +18,9 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class Application  extends SpringBootServletInitializer implements WebApplicationInitializer {
 
+    /**
+    * 事务管理
+    * */
     @Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
