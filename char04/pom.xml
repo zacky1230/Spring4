@@ -32,6 +32,12 @@
             <artifactId>groovy-all</artifactId>
             <version>${groovy.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
