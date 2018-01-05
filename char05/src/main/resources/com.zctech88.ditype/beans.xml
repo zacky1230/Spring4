@@ -33,4 +33,9 @@
     </bean>
     <!--<bean id="car" class="com.zctech88.ditype.Car"/>-->
     <bean id="office" class="com.zctech88.ditype.Office"/>
+
+    <!--工厂类注入-->
+    <bean id="carFactory" class="com.zctech88.ditype.CarFactory"/>
+    <bean id="car5" factory-bean="carFactory"
+          factory-method="createHongQiCar"/>
 </beans>
