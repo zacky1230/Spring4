@@ -3,11 +3,34 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
-    <bean id="car" class="com.zctech88.ditype.Car">
+    <!--属性注入-->
+    <!--<bean id="car" class="com.zctech88.ditype.Car">
         <property name="brand" value="baoma"/>
         <property name="maxSpeed">
             <value>200</value>
         </property>
         <property name="price" value="20000.0"/>
+    </bean>-->
+    <!--构造函数注入-->
+    <bean id="car1" class="com.zctech88.ditype.Car">
+        <constructor-arg type="java.lang.String">
+            <value>baoma</value>
+        </constructor-arg>
+        <constructor-arg type="double">
+            <value>20000</value>
+        </constructor-arg>
     </bean>
+    <bean id="boss" class="com.zctech88.ditype.Boss">
+        <constructor-arg>
+            <value>John</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="car1"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="office"/>
+        </constructor-arg>
+    </bean>
+    <!--<bean id="car" class="com.zctech88.ditype.Car"/>-->
+    <bean id="office" class="com.zctech88.ditype.Office"/>
 </beans>

@@ -28,4 +28,9 @@ public class Car {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public Car(String brand, double price) {
+        this.brand = brand;
+        this.price = price;
+    }
 }
