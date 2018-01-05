@@ -8,7 +8,7 @@ import com.smart.Car;
 @Configuration
 public class Beans {
 
-	@Bean(name = "car")
+	@Bean(name = "car1")
 	public Car buildCar() {
 		Car car = new Car();
 		car.setBrand("红旗CA72");
