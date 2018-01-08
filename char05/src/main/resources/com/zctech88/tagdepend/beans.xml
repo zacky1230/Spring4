@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <bean id="car1" class="com.zctech88.tagdepend.Car"
+          p:brand="红旗CA72" p:price="2000.0" p:color="黑色"/>
+    <bean id="car2" class="com.zctech88.tagdepend.Car"
+          p:brand="红旗CA72" p:price="2000.0" p:color="红色"/>
+
+    <!--定义抽象bean-->
+    <bean id="abstractCar" class="com.zctech88.tagdepend.Car"
+          p:brand="红旗CA72" p:price="2000.0" p:color="黑色" abstract="true"/>
+    <!--继承 abstract=“true”-->
+    <bean id="car3" parent="abstractCar" p:color="红色"/>
+    <bean id="car4" parent="abstractCar" p:color="白色"/>
+
+    <!--依赖-->
+    <bean id="manager" class="com.zctech88.tagdepend.CacheManager"
+          depends-on="sysInit"/>
+    <bean id="sysInit" class="com.zctech88.tagdepend.SysInit"/>
+
+    <!--引用-->
+    <bean id="car" class="com.zctech88.tagdepend.Car"/>
+    <bean id="boss" class="com.zctech88.tagdepend.Boss">
+        <property name="carId">
+            <idref bean="car"/>
+        </property>
+    </bean>
+</beans>
