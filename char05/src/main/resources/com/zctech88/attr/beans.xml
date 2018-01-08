@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+    <bean id="car" class="com.zctech88.attr.Car"/>
+    <bean id="boss" class="com.zctech88.attr.Boss">
+        <property name="car">
+            <ref bean="car"></ref>
+        </property>
+    </bean>
+    <bean id="boss3" class="com.zctech88.attr.Boss">
+        <property name="car.brand" value="吉利"/>
+    </bean>
+    <bean id="boss1" class="com.zctech88.attr.Boss">
+        <property name="favorites">
+            <set>
+                <value>看报</value>
+                <value>读书</value>
+            </set>
+        </property>
+        <property name="jobs">
+            <map>
+                <entry>
+                    <key>
+                        <value>AM</value>
+                    </key>
+                    <value>会见客户</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>PM</value>
+                    </key>
+                    <value>内部会议</value>
+                </entry>
+            </map>
+        </property>
+        <property name="mails">
+            <props>
+                <prop key="jobMail">john-office@smart.com</prop>
+                <prop key="lifeMail">john-life@smart.com</prop>
+            </props>
+        </property>
+        <!--强类型集合-->
+        <property name="jobTime">
+            <map>
+                <entry>
+                    <key>
+                        <value>会见客户</value>
+                    </key>
+                    <value>123</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <!--集合合并-->
+    <bean id="parentBoss" abstract="true" class="com.zctech88.attr.Boss">
+        <property name="favorites">
+            <set>
+                <value>看报</value>
+                <value>赛车</value>
+                <value>高尔夫</value>
+            </set>
+        </property>
+    </bean>
+    <bean id="childBoss" parent="parentBoss">
+        <property name="favorites">
+            <set merge="true">
+                <value>爬山</value>
+                <value>游泳</value>
+            </set>
+        </property>
+    </bean>
+    <util:list id="favoriteList1" list-class="java.util.LinkedList">
+        <value>看报</value>
+        <value>赛车</value>
+        <value>高尔夫</value>
+    </util:list>
+</beans>
